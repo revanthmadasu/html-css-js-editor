@@ -1,12 +1,16 @@
 import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+// import { CodeEditor } from './components/code-editor/code-editor.tsx';
+import  CodeEditor  from './app/components/code-editor/code-editor';
+import  WebView  from './app/components/web-view/web-view';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
@@ -50,7 +54,16 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
+      </header> */}
+
+        <div className="row">
+          <div className="col-6">
+            <CodeEditor></CodeEditor>
+          </div>
+          <div className="col-6">
+            <WebView></WebView>
+          </div>
+        </div>
     </div>
   );
 }
