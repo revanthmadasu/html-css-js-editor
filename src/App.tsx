@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 // import { CodeEditor } from './components/code-editor/code-editor.tsx';
@@ -8,6 +8,19 @@ import  WebView  from './app/components/web-view/web-view';
 import './App.css';
 
 function App() {
+  let [userInput, setUserInput] = useState('');
+  const onUserInputChange = (newValue: string) => {
+    setUserInput(newValue);
+  }
+  let [renderDocument, setRenderDocument] = useState(userInput);
+  const onRun = () => {
+    setRenderDocument(userInput);
+  }
+
+  const onDownload = () => {
+    console.log('On download action')
+    // setRenderDocument(userInput);
+  }
   return (
     <div className="App">
       {/* <header className="App-header">
@@ -55,13 +68,12 @@ function App() {
           </a>
         </span>
       </header> */}
-
-        <div className="row">
+        <div className="row h-100">
           <div className="col-6">
-            <CodeEditor></CodeEditor>
+            <CodeEditor onUserInputChange={onUserInputChange} onRun={onRun} onDownload={onDownload}></CodeEditor>
           </div>
           <div className="col-6">
-            <WebView></WebView>
+            <WebView renderDocument={renderDocument}></WebView>
           </div>
         </div>
     </div>
