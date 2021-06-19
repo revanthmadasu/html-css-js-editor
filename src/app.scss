@@ -1,0 +1,8 @@
+@import '/src/shared/styles/partials/variables';
+
+.App {
+    @include themify($themes) {
+        background-color: themed("primaryBackground") !important;
+        color: themed("primaryFontColor") !important;
+    }
+}

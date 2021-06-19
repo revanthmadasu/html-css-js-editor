@@ -4,6 +4,8 @@ import CodeEditorHeader from './code-editor-header/code-editor-header';
 import './code-editor.scss';
 import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-noconflict/theme-xcode";
+
 function CodeEditor(props: any) {
 
     let userInput = '';
@@ -18,6 +20,7 @@ function CodeEditor(props: any) {
     const onRun = () => {
         props.onRun();
     }
+    const theme = props.currentTheme === 'theme-light' ? 'xcode' : 'monokai';
     return (
         <div className="editor-container h-100">
             <div className="d-flex flex-column h-100">
@@ -25,7 +28,7 @@ function CodeEditor(props: any) {
                 <div className="py-1 h-100">
                     <AceEditor
                         mode="html"
-                        theme="monokai"
+                        theme={theme}
                         onChange={onChange}
                         name="ace-editor-id"
                         editorProps={{ $blockScrolling: true }}

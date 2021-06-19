@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
-// import { CodeEditor } from './components/code-editor/code-editor.tsx';
 import  CodeEditor  from './app/components/code-editor/code-editor';
 import  WebView  from './app/components/web-view/web-view';
 import Header from './app/components/header/header';
 import './App.css';
+import './app.scss';
 
 function App() {
   let [userInput, setUserInput] = useState('');
@@ -17,6 +17,8 @@ function App() {
     setRenderDocument(userInput);
   }
 
+  const [currentTheme, setThemeToggle] = useState('theme-light');
+
   const onDownload = () => {
     const anchor = document.createElement("a");
     const file = new Blob([userInput], {type: 'text/html;charset=utf-8'});
@@ -26,6 +28,12 @@ function App() {
     anchor.click();
     console.log('On download action')
     // setRenderDocument(userInput);
+  }
+
+  const onThemeChange = () => {
+    const updateTheme = (currentTheme === 'theme-light') ? 'theme-dark' : 'theme-light';
+    setThemeToggle(updateTheme);
+    document.body.className = updateTheme;
   }
   return (
     <div className="App p-4">
@@ -74,10 +82,10 @@ function App() {
           </a>
         </span>
       </header> */}
-        <Header></Header>
-        <div className="row h-100 py-3 panels-section">
+        <Header onThemeChange={onThemeChange}></Header>
+        <div className="row h-100 py-3 panels-section custom-scroll">
           <div className="col-md-6 col-sm-12">
-            <CodeEditor onUserInputChange={onUserInputChange} onRun={onRun} onDownload={onDownload}></CodeEditor>
+            <CodeEditor currentTheme={currentTheme} onUserInputChange={onUserInputChange} onRun={onRun} onDownload={onDownload}></CodeEditor>
           </div>
           <div className="col-md-6 col-sm-12">
             <WebView renderDocument={renderDocument}></WebView>
