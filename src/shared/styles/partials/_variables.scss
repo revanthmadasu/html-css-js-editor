@@ -1,2 +1,38 @@
 $editor-header-height: 2.35rem;
 $panel-min-height: 300px;
+
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+      .theme-#{$theme} & {
+        $theme-map: () !global;
+  
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), "#{$key}");
+          $theme-map: map-merge(
+            $theme-map,
+            (
+              $key: $value,
+            )
+          ) !global;
+        }
+  
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+  
+  @function themed($key) {
+    @return map-get($theme-map, $key);
+  }
+
+  $themes: (
+    dark: (
+        primaryBackground: #020824,
+        primaryFontColor: #fff
+    ),
+    light: (
+        primaryBackground: #f0f1f2,
+        primaryFontColor: #1f1e20
+    )
+  );
