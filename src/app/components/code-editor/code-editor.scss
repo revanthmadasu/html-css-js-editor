@@ -1,0 +1,8 @@
+@import "/src/shared/styles/partials/variables";
+.editor-container {
+    #ace-editor-id {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: $panel-min-height;
+    }
+}

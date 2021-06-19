@@ -1,10 +1,16 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.panels-section {
+  overflow-y: auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
