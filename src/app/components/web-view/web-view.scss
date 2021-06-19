@@ -1,0 +1,10 @@
+@import "/src/shared/styles/partials/variables";
+.code-editor-container {
+    margin-top: $editor-header-height;
+    .web-iframe {
+        border: 1px solid #3d3d3d;
+        // height: calc(100% - $editor-header-height);
+        height: calc(100% - 2.35rem);
+        min-height: $panel-min-height;
+    }
+}

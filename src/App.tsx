@@ -4,7 +4,7 @@ import { Counter } from './features/counter/Counter';
 // import { CodeEditor } from './components/code-editor/code-editor.tsx';
 import  CodeEditor  from './app/components/code-editor/code-editor';
 import  WebView  from './app/components/web-view/web-view';
-
+import Header from './app/components/header/header';
 import './App.css';
 
 function App() {
@@ -18,11 +18,17 @@ function App() {
   }
 
   const onDownload = () => {
+    const anchor = document.createElement("a");
+    const file = new Blob([userInput], {type: 'text/html;charset=utf-8'});
+    anchor.href = URL.createObjectURL(file);
+    anchor.download = "download.html";
+    document.body.appendChild(anchor);
+    anchor.click();
     console.log('On download action')
     // setRenderDocument(userInput);
   }
   return (
-    <div className="App">
+    <div className="App p-4">
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
@@ -68,11 +74,12 @@ function App() {
           </a>
         </span>
       </header> */}
-        <div className="row h-100">
-          <div className="col-6">
+        <Header></Header>
+        <div className="row h-100 py-3 panels-section">
+          <div className="col-md-6 col-sm-12">
             <CodeEditor onUserInputChange={onUserInputChange} onRun={onRun} onDownload={onDownload}></CodeEditor>
           </div>
-          <div className="col-6">
+          <div className="col-md-6 col-sm-12">
             <WebView renderDocument={renderDocument}></WebView>
           </div>
         </div>

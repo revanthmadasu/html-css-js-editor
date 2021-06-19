@@ -12,8 +12,8 @@ function CodeEditorHeader(props: any) {
     return (
         <div className="editor-header w-100">
             <div className="float-right">
-                <button className="btn btn-secondary" onClick={() => onDownload()}>Download</button>
-                <button className="btn btn-primary" onClick={() => onRun()}>Run</button>
+                <button className="btn btn-secondary rounded-pill px-3 mx-1" onClick={() => onDownload()}>Download</button>
+                <button className="btn btn-primary rounded-pill px-3 mx-1" onClick={() => onRun()}>Run</button>
             </div>
         </div>
     );
