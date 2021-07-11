@@ -25,7 +25,7 @@ function CodeEditor(props: any) {
         <div className="editor-container h-100">
             <div className="d-flex flex-column h-100">
                 <CodeEditorHeader onDownload={onDownload} onRun={onRun}></CodeEditorHeader>
-                <div className="py-1 h-100">
+                <div className="py-1 h-100 edit-section">
                     <AceEditor
                         mode="html"
                         theme={theme}
