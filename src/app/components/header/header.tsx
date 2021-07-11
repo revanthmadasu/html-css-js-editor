@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './header.scss';
 import ToggleButton from '../toggle-button/toggle-button';
 function Header(props: any) {

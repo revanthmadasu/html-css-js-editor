@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import  CodeEditor  from './app/components/code-editor/code-editor';
 import  WebView  from './app/components/web-view/web-view';
 import Header from './app/components/header/header';

@@ -10,9 +10,7 @@ function CodeEditor(props: any) {
 
     let userInput = '';
     function onChange(newValue: any) {
-        userInput = newValue;
         props.onUserInputChange(newValue);
-        console.log("change", newValue);
     }
     const onDownload = () => {
         props.onDownload();

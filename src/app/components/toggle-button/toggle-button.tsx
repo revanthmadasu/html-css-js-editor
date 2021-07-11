@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './toggle-button.scss';
 function ToggleButton(props: any) {
     const checked = props.checked;
