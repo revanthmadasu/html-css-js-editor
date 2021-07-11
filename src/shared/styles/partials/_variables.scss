@@ -29,10 +29,15 @@ $panel-min-height: 300px;
   $themes: (
     dark: (
         primaryBackground: #020824,
-        primaryFontColor: #fff
+        primaryFontColor: #fff,
+        standardBoxShadow: none,
+        standardBorder: solid 1px #363636
     ),
     light: (
         primaryBackground: #f0f1f2,
-        primaryFontColor: #1f1e20
+        primaryFontColor: #1f1e20,
+        // standardBoxShadow: -4px 4px 12px 5px rgb(0 0 0 / 16%),
+        standardBoxShadow: none,
+        standardBorder: none
     )
   );

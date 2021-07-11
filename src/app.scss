@@ -6,3 +6,11 @@
         color: themed("primaryFontColor") !important;
     }
 }
+
+.web-iframe, #ace-editor-id {
+    @include themify($themes) {
+        border: themed("standardBorder");
+        box-shadow: themed("standardBoxShadow");
+        border-radius: 10px;
+    }
+}
